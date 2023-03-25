@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DOM Manipulations</title>
+</head>
+<body>
+ -------------------------------------- 1 ----------------------------------------
+ <br>
+  <p id="para">It is paragraph tag</p>
+
+ -------------------------------------- 2 ----------------------------------------
+ <p id="para1">It is an example for onmouseover</p>
+ <br>
+ <script type="text/javascript">
+  var paragraph = document.getElementById("para1");
+paragraph.onmouseover = function() {
+  this.style.color = "red";
+};
+</script>
+
+--------------------------------------- 3 ----------------------------------------
+<br>
+<p id="para2" style="color: green">It is a example for onmouseout</p>
+<br>
+ <script type="text/javascript">
+  var paragraph1 = document.getElementById("para2");
+paragraph1.onmouseover = function() {
+  this.style.color = "black";
+};
+</script>
+--------------------------------------- 4 ----------------------------------------
+<br>
+<br>
+<button id="btn">click</button>
+<br>
+
+--------------------------------------- 5,6 --------------------------------------
+<br>
+<br>
+<button id="btn2" >Original Button Text</button>
+
+<script type="text/javascript">
+	var button = document.getElementById("btn2");
+    button.onmouseover = function() {
+  this.innerHTML = "New Button Text";};
+  var button1 = document.getElementById("btn2");
+    var originalText = button.innerHTML;
+    button1.onmouseout = function() {
+    this.innerHTML = "Original Button Text";
+};
+
+</script>
+<br>
+
+--------------------------------------- 7 -----------------------------------------
+<br>
+<br>
+<input type="text" id="in">
+<br>
+<br>
+--------------------------------------- 8 ------------------------------------------
+<br>
+<p id="para3">Paragraph Text</p>
+<button id="btn3">button</button>
+<br>
+<br>
+<input type="text" id="in1">
+<script type="text/javascript">
+var button2 = document.getElementById("btn3");
+var paragraph2 = document.getElementById("para3");
+var input = document.getElementById("in1");
+
+button2.onclick = function() {
+  input.value = paragraph2.innerHTML;
+}
+
+</script>
+<br>
+<br>
+--------------------------------------- 9,10 ------------------------------------------
+<ul id="list">
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ul>
+<script>
+	const listItems = document.querySelectorAll("#list li");
+
+listItems.forEach(item => {
+  item.addEventListener("mouseover", () => {
+    item.style.color = "red";
+    item.style.fontWeight = "bold";
+  });
+  item.addEventListener("mouseout", () => {
+    item.style.color = "black";
+    item.style.fontWeight = "normal";
+  });
+});
+</script>
+-----------------------------------------------------------------------------------------
+
+</body>
+</html>
